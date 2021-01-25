@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import Widget from "../src/components/Widget";
 import db from "../db.json";
 
-const BackgroundImage = styled.div`
-  background-image: url(${db.bg});
-  flex: 1;
-  background-size: cover;
-  background-position: cover;
-`;
+import Widget from "../src/components/Widget";
+import Footer from "../src/components/Footer";
+import GitHubCorner from "../src/components/GitHubCorner";
+import QuizBackground from "../src/components/QuizBackground";
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -22,7 +19,7 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-    <BackgroundImage>
+    <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <Widget>
           <Widget.header>
@@ -40,7 +37,9 @@ export default function Home() {
             <p> Lorem ipsum dolor sit amet, consectetur adip</p>
           </Widget.content>
         </Widget>
+        <Footer />
+        <GitHubCorner projectURL="https://github.com/felipefbs" />
       </QuizContainer>
-    </BackgroundImage>
+    </QuizBackground>
   );
 }
